@@ -1,0 +1,219 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #334155;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Video Background styles */
+#video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2; /* Ensure it's behind everything else */
+    object-fit: cover;
+}
+
+/* Overlay to darken the video and improve readability */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
+    z-index: -1;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.container:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+h1 {
+    text-align: center;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.input-group {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+#taskInput {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+#taskInput:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+#addTaskBtn {
+    padding: 0.75rem 1.5rem;
+    background-color: #6badd8;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#addTaskBtn:hover {
+    background-color:#6badd8;
+    transform: translateY(-2px);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: #f8fafc;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s, opacity 0.5s, transform 0.5s;
+    position: relative;
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #94a3b8;
+    background-color: #e2e8f0;
+}
+
+/* Animation for new tasks */
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+li.task-entering {
+    animation: slideInFromRight 0.5s ease-out forwards;
+}
+
+/* Animation for deleting tasks */
+li.task-leaving {
+    opacity: 0;
+    transform: scale(0.9);
+    margin-bottom: 0;
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+}
+
+.task-content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.task-content input[type="checkbox"] {
+    margin-right: 0.75rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    accent-color: #6badd8;
+    cursor: pointer;
+}
+
+.task-content span {
+    font-size: 1rem;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.remove-btn, .edit-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.remove-btn {
+    color: #ef4444;
+}
+
+.edit-btn {
+    color: #3b82f6;
+}
+
+.remove-btn:hover, .edit-btn:hover {
+    transform: scale(1.1);
+}
+
+.progress-container {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 1.25rem;
+    background-color: #e2e8f0;
+    border-radius: 0.625rem;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background-color: #6badd8;
+    transition: width 0.5s ease-in-out;
+}
+
+.progress-text {
+    margin-top: 0.5rem;
+    color: #64748b;
+}

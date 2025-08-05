@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Video Background -->
+    <video autoplay muted loop id="video-background" playsinline>
+        <!-- NOTE: Replace this with your actual video file. -->
+        <!-- The example video below is a placeholder from a public source. -->
+        <source src="C:\Users\user\Downloads\Animated_To_Do_List_Video_Generation.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
+
+    <div class="container">
+        <h1>Tickled Tasks</h1>
+        
+        <div class="input-group">
+            <input type="text" id="taskInput" placeholder="Add a new task...">
+            <button id="addTaskBtn">Add</button>
+        </div>
+        
+        <ul id="taskList"></ul>
+
+        <div class="progress-container">
+            <h3>Task Progress</h3>
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+            <p class="progress-text">
+                <span id="completedCount">0</span> / <span id="totalCount">0</span> tasks completed
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
